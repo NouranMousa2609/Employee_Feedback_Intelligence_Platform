@@ -1,0 +1,3 @@
+Model,Accuracy,Macro-F1,Latency(ms),Size,Interpretable
+LinearSVC (TF-IDF),0.5533,0.5081,296.4,~few MB,Yes
+DistilBERT (fine-tuned),0.52,0.5051,61928.7,~250 MB,Limited
