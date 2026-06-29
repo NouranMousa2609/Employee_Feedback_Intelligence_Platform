@@ -1,0 +1,20 @@
+{
+  "model": "LinearSVC (tuned)",
+  "test_accuracy": 0.6874,
+  "test_macro_f1": 0.5493,
+  "best_C": 1,
+  "val_results": {
+    "Logistic Regression": {
+      "acc": 0.6911,
+      "f1": 0.5655
+    },
+    "LinearSVC": {
+      "acc": 0.6855,
+      "f1": 0.5476
+    },
+    "Random Forest": {
+      "acc": 0.6258,
+      "f1": 0.322
+    }
+  }
+}

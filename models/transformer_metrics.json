@@ -1,0 +1,33 @@
+{
+  "model": "distilbert-base-uncased (fine-tuned, PyTorch + HuggingFace Trainer)",
+  "sample_size": 3000,
+  "epochs_trained": 4,
+  "test_accuracy": 0.52,
+  "test_macro_f1": 0.5051,
+  "history": [
+    {
+      "epoch": 1.0,
+      "train_loss": null,
+      "val_acc": 0.44124168514412415,
+      "val_f1": 0.4168942554830089
+    },
+    {
+      "epoch": 2.0,
+      "train_loss": null,
+      "val_acc": 0.5232815964523282,
+      "val_f1": 0.5134560319373497
+    },
+    {
+      "epoch": 3.0,
+      "train_loss": null,
+      "val_acc": 0.5521064301552107,
+      "val_f1": 0.5367129210658622
+    },
+    {
+      "epoch": 4.0,
+      "train_loss": null,
+      "val_acc": 0.5432372505543237,
+      "val_f1": 0.5295523366413503
+    }
+  ]
+}
