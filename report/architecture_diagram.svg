@@ -1,0 +1,86 @@
+<svg viewBox="0 0 900 620" xmlns="http://www.w3.org/2000/svg" font-family="Inter, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#6366f1"/>
+    </marker>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0001" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="620" fill="#f8fafc" rx="16"/>
+
+  <!-- Title -->
+  <text x="450" y="38" text-anchor="middle" font-size="20" font-weight="700" fill="#1e293b">Employee Feedback Intelligence Platform — Architecture</text>
+
+  <!-- ── INPUT ── -->
+  <rect x="340" y="60" width="220" height="52" rx="10" fill="#e0e7ff" stroke="#6366f1" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="450" y="82" text-anchor="middle" font-size="13" font-weight="600" fill="#4338ca">📂 CSV Upload</text>
+  <text x="450" y="100" text-anchor="middle" font-size="11" fill="#6366f1">feedback_text · ratings · date</text>
+
+  <!-- Arrow down -->
+  <line x1="450" y1="112" x2="450" y2="138" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ── PREPROCESSING ── -->
+  <rect x="230" y="138" width="440" height="96" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="450" y="162" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">🔧 Preprocessing Pipeline</text>
+  <!-- Steps row -->
+  <rect x="244" y="172" width="82" height="28" rx="6" fill="#f1f5f9"/>
+  <text x="285" y="190" text-anchor="middle" font-size="10" fill="#475569">Lowercase</text>
+  <rect x="334" y="172" width="82" height="28" rx="6" fill="#f1f5f9"/>
+  <text x="375" y="190" text-anchor="middle" font-size="10" fill="#475569">Clean / Strip</text>
+  <rect x="424" y="172" width="82" height="28" rx="6" fill="#f1f5f9"/>
+  <text x="465" y="190" text-anchor="middle" font-size="10" fill="#475569">Tokenise</text>
+  <rect x="514" y="172" width="82" height="28" rx="6" fill="#f1f5f9"/>
+  <text x="555" y="190" text-anchor="middle" font-size="10" fill="#475569">Stopwords</text>
+  <rect x="604" y="172" width="56" height="28" rx="6" fill="#f1f5f9"/>
+  <text x="632" y="190" text-anchor="middle" font-size="10" fill="#475569">Lemmatise</text>
+  <!-- Feature cols label -->
+  <text x="450" y="224" text-anchor="middle" font-size="10" fill="#94a3b8">→ cleaned_text · word_count · char_count · avg_word_length</text>
+
+  <!-- Arrow splits -->
+  <line x1="340" y1="234" x2="200" y2="280" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="560" y1="234" x2="700" y2="280" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ── CLASSICAL MODEL ── -->
+  <rect x="60" y="280" width="280" height="120" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="60" y="280" width="280" height="32" rx="10" fill="#6366f1"/>
+  <rect x="60" y="300" width="280" height="12" rx="0" fill="#6366f1"/>
+  <text x="200" y="301" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Classical ML Model</text>
+  <text x="90" y="330" font-size="10.5" fill="#475569">• TF-IDF (30 000 features, bigrams)</text>
+  <text x="90" y="348" font-size="10.5" fill="#475569">• LinearSVC (C tuned via 5-fold CV)</text>
+  <text x="90" y="366" font-size="10.5" fill="#475569">• Grid search: C ∈ {0.01, 0.1, 1, 5, 10}</text>
+  <text x="90" y="384" font-size="10.5" fill="#475569">• Serialised: models/classical_model.pkl</text>
+
+  <!-- ── TRANSFORMER MODEL ── -->
+  <rect x="560" y="280" width="280" height="120" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="560" y="280" width="280" height="32" rx="10" fill="#7c3aed"/>
+  <rect x="560" y="300" width="280" height="12" rx="0" fill="#7c3aed"/>
+  <text x="700" y="301" text-anchor="middle" font-size="12" font-weight="600" fill="#fff">Transformer Model</text>
+  <text x="590" y="330" font-size="10.5" fill="#475569">• DistilBERT (distilbert-base-uncased)</text>
+  <text x="590" y="348" font-size="10.5" fill="#475569">• Fine-tuned: 3-class classification head</text>
+  <text x="590" y="366" font-size="10.5" fill="#475569">• Max seq len: 128 tokens · batch: 64</text>
+  <text x="590" y="384" font-size="10.5" fill="#475569">• Weights: models/transformer/</text>
+
+  <!-- Arrows down to comparison -->
+  <line x1="200" y1="400" x2="340" y2="452" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+  <line x1="700" y1="400" x2="560" y2="452" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ── MODEL COMPARISON ── -->
+  <rect x="230" y="452" width="440" height="64" rx="10" fill="#fff" stroke="#e2e8f0" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="450" y="476" text-anchor="middle" font-size="13" font-weight="600" fill="#1e293b">📊 Model Comparison</text>
+  <text x="450" y="500" text-anchor="middle" font-size="10.5" fill="#64748b">Accuracy · Macro-F1 · Precision · Recall · Confusion Matrix</text>
+
+  <!-- Arrow down -->
+  <line x1="450" y1="516" x2="450" y2="542" stroke="#6366f1" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- ── STREAMLIT APP ── -->
+  <rect x="175" y="542" width="550" height="60" rx="10" fill="#fff7ed" stroke="#f97316" stroke-width="1.5" filter="url(#shadow)"/>
+  <text x="450" y="566" text-anchor="middle" font-size="13" font-weight="600" fill="#c2410c">🌐 Streamlit Application</text>
+  <text x="450" y="588" text-anchor="middle" font-size="10.5" fill="#9a3412">Upload &amp; Preview · Dashboard · Train Models · Compare &amp; Predict</text>
+
+  <!-- Labels for model boxes -->
+  <text x="200" y="274" text-anchor="middle" font-size="10" fill="#6366f1" font-weight="500">sklearn Pipeline</text>
+  <text x="700" y="274" text-anchor="middle" font-size="10" fill="#7c3aed" font-weight="500">HuggingFace Transformers</text>
+</svg>
